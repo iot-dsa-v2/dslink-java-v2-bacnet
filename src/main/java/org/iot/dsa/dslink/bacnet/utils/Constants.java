@@ -16,5 +16,7 @@ public class Constants {
     public static final String PING_RATE = "Ping Rate";
     public static final String TIMEOUT = "Timeout";
     public static final String RETRIES = "Retries";
+    
+    public static final double DEFAULT_PING_RATE = 5;
    
 }
