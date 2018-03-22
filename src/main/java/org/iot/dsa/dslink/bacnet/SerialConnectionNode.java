@@ -5,8 +5,7 @@ import java.util.List;
 import org.iot.dsa.dslink.dframework.ParameterDefinition;
 import org.iot.dsa.node.DSMap;
 
-public class IPConnectionNode extends BacnetConnectionNode {
-
+public class SerialConnectionNode extends BacnetConnectionNode {
     protected static List<ParameterDefinition> parameterDefinitions = new ArrayList<ParameterDefinition>();
     
     static {
@@ -19,17 +18,16 @@ public class IPConnectionNode extends BacnetConnectionNode {
         return parameterDefinitions;
     }
     
-    public IPConnectionNode() {
+    public SerialConnectionNode() {
         super();
     }
-
-    public IPConnectionNode(DSMap parameters) {
+    
+    public SerialConnectionNode(DSMap parameters) {
         super(parameters);
     }
     
     @Override
     public boolean createConnection() {
-        
         
         return super.createConnection();
     }

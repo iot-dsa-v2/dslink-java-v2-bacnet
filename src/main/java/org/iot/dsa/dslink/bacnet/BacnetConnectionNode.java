@@ -6,8 +6,10 @@ import org.iot.dsa.dslink.dframework.DFConnectionNode;
 import org.iot.dsa.dslink.dframework.DFUtil;
 import org.iot.dsa.dslink.dframework.ParameterDefinition;
 import org.iot.dsa.dslink.dframework.bounds.DoubleBounds;
+import org.iot.dsa.dslink.dframework.bounds.IntegerBounds;
 import org.iot.dsa.node.DSDouble;
 import org.iot.dsa.node.DSElement;
+import org.iot.dsa.node.DSInt;
 import org.iot.dsa.node.DSMap;
 
 public abstract class BacnetConnectionNode extends DFConnectionNode {
@@ -18,6 +20,20 @@ public abstract class BacnetConnectionNode extends DFConnectionNode {
                 DSDouble.valueOf(Constants.DEFAULT_PING_RATE),
                 new DoubleBounds(.001, Double.MAX_VALUE),
                 "interval between pings, in seconds",
+                null)
+        );
+        definitions.add(ParameterDefinition.makeParamWithBoundsAndDef(
+                Constants.TIMEOUT,
+                DSInt.valueOf(Constants.DEFAULT_TIMEOUT),
+                new IntegerBounds(100, 10000), //Integer.MAX_VALUE
+                null,
+                null)
+        );
+        definitions.add(ParameterDefinition.makeParamWithBoundsAndDef(
+                Constants.RETRIES,
+                DSInt.valueOf(Constants.DEFAULT_RETRIES),
+                new IntegerBounds(0, 100), //Integer.MAX_VALUE
+                null,
                 null)
         );
     }
@@ -32,7 +48,7 @@ public abstract class BacnetConnectionNode extends DFConnectionNode {
     @Override
     protected void declareDefaults() {
         super.declareDefaults();
-//        declareDefault(Constants.ACTION_ADD_DEVICE, DFUtil.getAddAction(BacnetDeviceNode.class));
+        declareDefault(Constants.ACTION_ADD_DEVICE, DFUtil.getAddAction(BacnetDeviceNode.class));
     }
     
     /* ==================================================================== */
