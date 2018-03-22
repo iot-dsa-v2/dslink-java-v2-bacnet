@@ -1,0 +1,53 @@
+import groovy.json.JsonSlurper
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+group 'org.iot.dsa'
+mainClassName = 'org.iot.dsa.dslink.DSLink'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+build {
+    def inputFile = file('dslink.json')
+    def json = new JsonSlurper().parseText(inputFile.text)
+    version = json.version
+}
+
+repositories {
+    jcenter()
+    //mavenLocal()
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+    flatDir { dirs 'dsa' }
+}
+
+dependencies {
+    compile 'org.iot.dsa:dslink-core:+'
+    compile 'org.iot.dsa:dslink-websocket-standalone:+'
+    compile ':driver-framework-java-v2-prototype:+'
+    compile 'org.glassfish.tyrus.bundles:tyrus-standalone-client:1.13'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'commons-logging:commons-logging:+'
+
+    //Testing framework
+    testCompile ':driver-framework-java-v2-prototype:+:tests'
+    //Python for Java for python tests
+    testCompile group: 'org.python', name: 'jython-standalone', version: '2.7.0'
+    //Diff utils and dependency for exact match test
+    testCompile 'com.github.bkromhout:java-diff-utils:+'
+    testCompile 'org.apache.commons:commons-lang3:3.4'
+    //Junit for automated build/testing
+    testCompile 'junit:junit:+'
+    //For unit tests
+    testCompile 'org.mockito:mockito-all:+'
+}
+
+applicationDistribution.from(new File(project.projectDir, "/dslink.json"))
+
+run {
+    args System.getProperty("exec.args", "").split()
+    workingDir project.buildDir
+}
+
