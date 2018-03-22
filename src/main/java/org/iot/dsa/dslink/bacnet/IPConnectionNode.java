@@ -10,7 +10,6 @@ public class IPConnectionNode extends BacnetConnectionNode {
     protected static List<ParameterDefinition> parameterDefinitions = new ArrayList<ParameterDefinition>();
     
     static {
-        
         BacnetConnectionNode.addCommonParameterDefinitions(parameterDefinitions);
     }
     
