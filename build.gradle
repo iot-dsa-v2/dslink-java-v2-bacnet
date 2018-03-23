@@ -24,9 +24,9 @@ repositories {
 }
 
 dependencies {
-    compile 'org.iot.dsa:dslink-core:+'
-    compile 'org.iot.dsa:dslink-websocket-standalone:+'
-    compile ':driver-framework-java-v2-prototype:+'
+    compile 'org.iot.dsa:dslink-core:0.18+'
+    compile 'org.iot.dsa:dslink-websocket-standalone:0.18+'
+    compile ':driver-framework-java-v2-prototype:1.1.1'
     compile 'org.glassfish.tyrus.bundles:tyrus-standalone-client:1.13'
     compile 'org.apache.commons:commons-lang3:3.4'
     compile 'commons-logging:commons-logging:+'
