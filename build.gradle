@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper
 apply plugin: 'java'
 apply plugin: 'application'
 
-group 'org.iot.dsa'
+group 'org.iot-dsa'
 mainClassName = 'org.iot.dsa.dslink.DSLink'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -16,32 +16,29 @@ build {
 
 repositories {
     jcenter()
-    //mavenLocal()
     maven {
-        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+        url 'https://jitpack.io'
     }
-    flatDir { dirs 'dsa' }
 }
 
 dependencies {
-    compile 'org.iot.dsa:dslink-core:0.18+'
-    compile 'org.iot.dsa:dslink-websocket-standalone:0.18+'
-    compile ':driver-framework-java-v2-prototype:1.1.1'
-    compile 'org.glassfish.tyrus.bundles:tyrus-standalone-client:1.13'
-    compile 'org.apache.commons:commons-lang3:3.4'
-    compile 'commons-logging:commons-logging:+'
+    implementation 'com.github.iot-dsa-v2:sdk-dslink-java-v2:+'
+    implementation 'com.github.iot-dsa-v2:driver-framework-java-v2-prototype:master-SNAPSHOT'
+    implementation 'org.apache.commons:commons-lang3:3.4'
+    implementation 'commons-logging:commons-logging:+'
 
     //Testing framework
-    testCompile ':driver-framework-java-v2-prototype:+:tests'
+    //testCompile ':driver-framework-java-v2-prototype:+:tests'
+
     //Python for Java for python tests
-    testCompile group: 'org.python', name: 'jython-standalone', version: '2.7.0'
+    testImplementation group: 'org.python', name: 'jython-standalone', version: '2.7.0'
     //Diff utils and dependency for exact match test
-    testCompile 'com.github.bkromhout:java-diff-utils:+'
-    testCompile 'org.apache.commons:commons-lang3:3.4'
+    testImplementation 'com.github.bkromhout:java-diff-utils:+'
+    testImplementation 'org.apache.commons:commons-lang3:3.4'
     //Junit for automated build/testing
-    testCompile 'junit:junit:+'
+    testImplementation 'junit:junit:+'
     //For unit tests
-    testCompile 'org.mockito:mockito-all:+'
+    testImplementation 'org.mockito:mockito-all:+'
 }
 
 applicationDistribution.from(new File(project.projectDir, "/dslink.json"))

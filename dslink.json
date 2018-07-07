@@ -1,6 +1,6 @@
 {
   "name": "dslink-java-v2-bacnet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dsa-version": "1.0",
   "description": "BACnet Link",
   "main": "bin/dslink-java-v2-bacnet",
