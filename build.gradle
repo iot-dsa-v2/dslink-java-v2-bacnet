@@ -26,10 +26,8 @@ dependencies {
     implementation 'com.github.iot-dsa-v2:driver-framework-java-v2-prototype:master-SNAPSHOT'
     implementation 'org.apache.commons:commons-lang3:3.4'
     implementation 'commons-logging:commons-logging:+'
-
     //Testing framework
     //testCompile ':driver-framework-java-v2-prototype:+:tests'
-
     //Python for Java for python tests
     testImplementation group: 'org.python', name: 'jython-standalone', version: '2.7.0'
     //Diff utils and dependency for exact match test
