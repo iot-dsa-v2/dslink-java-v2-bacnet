@@ -5,79 +5,14 @@
   "description": "BACnet Link",
   "main": "bin/dslink-java-v2-bacnet",
   "configs": {
-    "mainType": {
-      "desc1": "*************** THIS IS REQUIRED AND MUST BE CHANGED ***************",
-      "desc2": "Fully qualified class name of the root node of the link.",
+    "handler_class": {
       "type": "string",
       "value": "org.iot.dsa.dslink.bacnet.MainNode"
     },
-    "broker": {
-      "desc1": "*************** OPTIONAL CONFIGS IN ALPHABETICAL ORDER ***************",
-      "desc2": "URL to broker.",
-      "type": "url",
-      "value": null
-    },
-    "connectionType": {
-      "desc": "Can be specified to override the default connection type.",
-      "type": "string",
-      "value": null
-    },
-    "isRequester": {
-      "desc": "Whether or not the link is a requester.",
-      "type": "boolean",
-      "value": false
-    },
-    "isResponder": {
-      "desc": "Whether or not the link is a responder.",
-      "type": "boolean",
-      "value": true
-    },
-    "key": {
-      "desc": "Path to public/private key pair.",
-      "type": "path",
-      "value": ".key"
-    },
     "log": {
-      "desc": "debug, info, warn, error, none",
       "type": "enum",
-      "value": "info"
+      "value": "trace"
     },
-    "logFile": {
-      "desc": "Path to the log file.",
-      "type": "path",
-      "value": null
-    },
-    "nodes": {
-      "desc": "Path to configuration database.",
-      "type": "path",
-      "value": null
-    },
-    "readTimeout": {
-      "desc": "Millis timeout for reading from the connection.",
-      "type": "number",
-      "value": 60000
-    },
-    "saveInterval": {
-      "desc": "How often to backup the node database in minutes.",
-      "type": "number",
-      "value": 60
-    },
-    "stableDelay": {
-      "desc": "Millis after the node tree is started before calling stable.",
-      "type": "number",
-      "value": 5000
-    },
-    "token": {
-      "desc": "Authentication token for the broker.",
-      "type": "string",
-      "value": null
-    },
-    "transportFactory": {
-      "desc": "Can be specified to override the default standalone transport.",
-      "type": "string",
-      "value": null
-    },
-    
     "reconnectDelayMultiplier": {
       "desc": "Factor by which to multiply the reconnect delay every time bacnet fails to connect to a connection or device.",
       "type": "number",

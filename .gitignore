@@ -1,6 +1,34 @@
-/.idea/
-/.gradle/
-/.idea/
-/bin/
-/build/
-testing-output.txt
+# Tooling
+**.classpath
+**.idea
+**.metadata
+**.project
+**.settings
+**eclipseBin
+
+# Build artifacts
+**.class
+**.iml
+**build
+**classes
+**libJar
+**out
+**target
+**/.gradle
+**javadoc
+**repository
+
+# Misc
+**.bak
+**.old
+**.log
+**.DS_Store
+
+# Runtime files
+**.jks
+**.key
+**db
+**nodes.json
+**nodes*.zip
+**test.json
+**/*.log.*.zip
