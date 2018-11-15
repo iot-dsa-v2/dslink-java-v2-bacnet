@@ -1,17 +1,13 @@
 {
   "name": "dslink-java-v2-bacnet",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "dsa-version": "1.0",
   "description": "BACnet Link",
   "main": "bin/dslink-java-v2-bacnet",
   "configs": {
-    "handler_class": {
+    "main-node": {
       "type": "string",
       "value": "org.iot.dsa.dslink.bacnet.MainNode"
-    },
-    "log": {
-      "type": "enum",
-      "value": "trace"
     },
     "reconnectDelayMultiplier": {
       "desc": "Factor by which to multiply the reconnect delay every time bacnet fails to connect to a connection or device.",
