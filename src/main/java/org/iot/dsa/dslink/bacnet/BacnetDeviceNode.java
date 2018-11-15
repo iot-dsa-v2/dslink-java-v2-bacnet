@@ -78,6 +78,6 @@ public class BacnetDeviceNode extends DFDeviceNode {
     
     @Override
     public double getReconnectDelayMultiplier() {
-        return getMainNode().getLink().getConfig().getConfig(Constants.CONFIG_RECONNECT_DELAY_MULTIPLIER, super.getReconnectDelayMultiplier());
+        return getMainNode().getLink().getOptions().getConfig(Constants.CONFIG_RECONNECT_DELAY_MULTIPLIER, super.getReconnectDelayMultiplier());
     }
 }
